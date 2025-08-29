@@ -4,6 +4,13 @@ import numpy as np
 from typing import Any, Dict
 from einops import einsum
 from fra.activation_utils import get_llm_activations
+from tqdm import tqdm
+
+
+def lower_triangular_mask(pattern: np.ndarray) -> np.ma.MaskedArray:
+    """Apply lower triangular mask to attention pattern."""
+    mask = np.triu(np.ones(pattern.shape), k=1)
+    return np.ma.array(np.tril(pattern, k=0), mask=mask)
 
 
 def attention_pattern_QK(llm: Any, layer: int, head: int, q_input: torch.Tensor, 
@@ -95,6 +102,46 @@ def analyze_feature_attention_interactions(model: Any, sae: Any, layer: int, hea
         'matrix_scaling': matrix_scaling,
         'interaction_matrix': interaction_matrix_unscaled * matrix_scaling
     }
+
+
+def get_sentence_averages(llm:Any,sae:Any,layer:int,head:int,input_text:str,hook_point:str="attn.hook_z"):
+	text_length=128
+	hidden_dim=sae.d_sae
+	data_dep_int_matrix=np.zeros((hidden_dim,hidden_dim))
+	data_dep_int_matrix_abs=np.zeros((hidden_dim,hidden_dim))
+	data_dep_localization_matrix=np.zeros((hidden_dim,hidden_dim))
+	count=0
+	for key_index in tqdm(range(text_length), disable=True):
+		for query_index in range(key_index,text_length):
+				feature_analysis=analyze_feature_attention_interactions(llm,sae,layer,head,input_text,query_index,key_index,hook_point)
+				int_matrix=feature_analysis["interaction_matrix"]
+				query_active_features=feature_analysis["query_active_features"]
+				key_active_features=feature_analysis["key_active_features"]
+				data_independent=feature_analysis["interaction_matrix_unscaled"]
+				
+				resized_data_dependent_int=np.zeros((hidden_dim,hidden_dim))
+				resized_data_dependent_int[query_active_features[:,None],key_active_features[None,:]]=int_matrix
+
+				resized_data_dependent_localization=np.zeros((hidden_dim,hidden_dim))
+				resized_data_dependent_localization[query_active_features[:,None],key_active_features[None,:]]=np.abs(int_matrix)*(query_index-key_index)
+
+				
+				
+				
+				data_dep_int_matrix=data_dep_int_matrix+resized_data_dependent_int
+				data_dep_int_matrix_abs=data_dep_int_matrix_abs+np.abs(resized_data_dependent_int)
+				data_dep_localization_matrix=data_dep_localization_matrix+resized_data_dependent_localization
+
+				count+=1
+	
+	data_dep_int_matrix/=count
+	data_dep_localization_matrix=data_dep_localization_matrix/np.clip(data_dep_int_matrix_abs,a_min=1,a_max=None)
+	data_dep_int_matrix_abs/=count
+
+	return data_dep_int_matrix,data_dep_int_matrix_abs,data_dep_localization_matrix
+
+    
+
 
 if __name__ == "__main__":
     print('main character')
