@@ -143,5 +143,197 @@ def get_sentence_averages(llm:Any,sae:Any,layer:int,head:int,input_text:str,hook
     
 
 
+@torch.no_grad()
+def get_sentence_fra_batch(
+    model: HookedTransformer,
+    sae: Any,
+    text: str,
+    layer: int,
+    head: int,
+    max_length: int = 128,
+    top_k: int = 20,
+    verbose: bool = False
+) -> Dict[str, Any]:
+    """
+    Compute full 4D Feature-Resolved Attention tensor for a sentence.
+    Returns a sparse representation to avoid memory issues.
+    
+    Args:
+        model: The transformer model
+        sae: The SAE wrapper (expects SAELensAttentionSAE)
+        text: Input text to analyze
+        layer: Which layer to analyze
+        head: Which attention head to analyze
+        max_length: Maximum sequence length
+        top_k: Number of top features to keep per position
+        verbose: Whether to show progress
+        
+    Returns:
+        Dictionary containing:
+            - fra_tensor_sparse: Sparse 4D tensor indices and values
+            - shape: Shape of the full tensor [seq_len, seq_len, d_sae, d_sae]
+            - seq_len: Actual sequence length
+            - total_interactions: Total number of non-zero interactions
+    """
+    from sae_lens import SAE
+    
+    device = next(model.parameters()).device
+    
+    # Get attention activations (hook_z for SAE Lens)
+    tokens = model.tokenizer.encode(text)
+    if max_length is not None and len(tokens) > max_length:
+        tokens = tokens[:max_length]
+    
+    tokens_tensor = torch.tensor(tokens).unsqueeze(0).to(device)
+    hook_name = f"blocks.{layer}.attn.hook_z"
+    _, cache = model.run_with_cache(tokens_tensor, names_filter=[hook_name])
+    
+    z = cache[hook_name].squeeze(0)  # [seq_len, n_heads, d_head]
+    seq_len = z.shape[0]
+    z_flat = z.flatten(-2, -1)  # [seq_len, 768]
+    
+    # Encode to SAE features
+    if verbose:
+        print(f"Encoding {seq_len} positions to SAE features...")
+    
+    # Handle SAE encoding properly
+    if hasattr(sae, 'encode'):
+        feature_activations = sae.encode(z_flat)  # [seq_len, d_sae]
+    else:
+        # Direct SAE object
+        feature_activations = sae.sae.encode(z_flat)
+    
+    d_sae = feature_activations.shape[-1]
+    
+    # Keep only top-k features per position
+    topk_features = []
+    for pos in range(seq_len):
+        feat = feature_activations[pos]
+        active_mask = feat != 0
+        n_active = active_mask.sum().item()
+        
+        if n_active > 0:
+            k = min(top_k, n_active)
+            topk_vals, topk_idx = torch.topk(feat.abs(), k)
+            sparse_feat = torch.zeros_like(feat)
+            sparse_feat[topk_idx] = feat[topk_idx]
+        else:
+            sparse_feat = torch.zeros_like(feat)
+        
+        topk_features.append(sparse_feat)
+    
+    topk_features = torch.stack(topk_features)
+    
+    # Get attention weights
+    W_Q = model.blocks[layer].attn.W_Q[head]
+    W_K = model.blocks[layer].attn.W_K[head]
+    
+    # Get decoder weights
+    if hasattr(sae, 'W_dec'):
+        W_dec = sae.W_dec
+    else:
+        W_dec = sae.sae.W_dec
+    
+    # Collect all sparse interactions
+    # Format: [query_pos, key_pos, query_feat, key_feat] -> value
+    all_indices = []
+    all_values = []
+    
+    total_pairs = seq_len * (seq_len + 1) // 2
+    if verbose:
+        pbar = tqdm(total=total_pairs, desc=f"Computing 4D FRA (L{layer}H{head})")
+    
+    for key_idx in range(seq_len):
+        for query_idx in range(key_idx, seq_len):  # Lower triangular
+            q_feat = topk_features[query_idx]
+            k_feat = topk_features[key_idx]
+            
+            q_active = torch.where(q_feat != 0)[0]
+            k_active = torch.where(k_feat != 0)[0]
+            
+            if len(q_active) == 0 or len(k_active) == 0:
+                if verbose:
+                    pbar.update(1)
+                continue
+            
+            # Get decoder vectors
+            q_vecs = W_dec[q_active]
+            k_vecs = W_dec[k_active]
+            
+            # Compute attention scores
+            q_proj = torch.matmul(q_vecs, W_Q)
+            k_proj = torch.matmul(k_vecs, W_K)
+            int_matrix = torch.matmul(q_proj, k_proj.T)
+            
+            # Scale by feature activations
+            int_matrix = int_matrix * q_feat[q_active].unsqueeze(1) * k_feat[k_active].unsqueeze(0)
+            
+            # Find non-zero interactions
+            mask = int_matrix.abs() > 1e-10
+            if mask.any():
+                local_r, local_c = torch.where(mask)
+                
+                # Create 4D indices: [query_pos, key_pos, query_feat, key_feat]
+                n_interactions = len(local_r)
+                pos_indices = torch.zeros((4, n_interactions), dtype=torch.long)
+                pos_indices[0, :] = query_idx  # Query position
+                pos_indices[1, :] = key_idx    # Key position
+                pos_indices[2, :] = q_active[local_r]  # Query feature
+                pos_indices[3, :] = k_active[local_c]  # Key feature
+                
+                all_indices.append(pos_indices)
+                all_values.append(int_matrix[mask])
+            
+            if verbose:
+                pbar.update(1)
+    
+    if verbose:
+        pbar.close()
+    
+    # Combine all interactions
+    if len(all_indices) > 0:
+        indices = torch.cat(all_indices, dim=1).to(device)
+        values = torch.cat(all_values).to(device)
+        
+        # Create sparse 4D tensor
+        shape = (seq_len, seq_len, d_sae, d_sae)
+        fra_tensor_sparse = torch.sparse_coo_tensor(
+            indices, values,
+            size=shape,
+            device=device,
+            dtype=torch.float32
+        ).coalesce()
+        
+        total_interactions = fra_tensor_sparse._nnz()
+    else:
+        # Empty tensor
+        shape = (seq_len, seq_len, d_sae, d_sae)
+        empty_indices = torch.zeros((4, 0), dtype=torch.long, device=device)
+        empty_values = torch.zeros(0, dtype=torch.float32, device=device)
+        
+        fra_tensor_sparse = torch.sparse_coo_tensor(
+            empty_indices, empty_values,
+            size=shape,
+            device=device
+        )
+        total_interactions = 0
+    
+    if verbose:
+        density = total_interactions / (seq_len * seq_len * top_k * top_k)
+        print(f"4D FRA tensor: shape={shape}, nnz={total_interactions:,}, density={density:.2%}")
+        
+        # Memory estimate
+        sparse_mem = (total_interactions * (4 + 1) * 4) / (1024**2)  # 4 indices + 1 value, 4 bytes each
+        dense_mem = (seq_len * seq_len * d_sae * d_sae * 4) / (1024**3)  # GB
+        print(f"Memory: sparse={sparse_mem:.2f}MB vs dense={dense_mem:.2f}GB")
+    
+    return {
+        'fra_tensor_sparse': fra_tensor_sparse,
+        'shape': shape,
+        'seq_len': seq_len,
+        'total_interactions': total_interactions
+    }
+
+
 if __name__ == "__main__":
     print('main character')
