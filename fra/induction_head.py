@@ -434,8 +434,11 @@ def loader(config_path: str = None):
 def main():
     """Main entry point for Feature-Resolved Attention analysis."""
     import time
+    import tarfile
+    import os
     from fra.fra_func import get_sentence_fra_batch
     from fra.utils import load_config, load_dataset_hf
+    from fra.single_sample_viz import create_fra_dashboard
     
     torch.set_grad_enabled(False)
     
@@ -517,6 +520,36 @@ def main():
             print(f"\n  Self-interactions (potential induction):")
             for feat, strength in self_interactions[:3]:
                 print(f"    F{feat} → F{feat}: {strength:.4f}")
+    
+    print("\n" + "=" * 70)
+    
+    # Generate dashboard for the analyzed text
+    print("\nGenerating interactive dashboard...")
+    dashboard_path = create_fra_dashboard(
+        model=model,
+        sae=sae,
+        text=text,
+        layer=layer,
+        head=0,  # Using head 0 for the dashboard
+        top_k_features=top_k,
+        top_k_interactions=30,
+        use_timestamp=False
+    )
+    print(f"Dashboard saved to: {dashboard_path}")
+    
+    # Package results for easy transfer
+    results_dir = Path(__file__).parent / "results"
+    package_path = results_dir / "results_package.tar.gz"
+    
+    print(f"\nPackaging results...")
+    with tarfile.open(package_path, "w:gz") as tar:
+        # Add all HTML files in results directory
+        for html_file in results_dir.glob("*.html"):
+            tar.add(html_file, arcname=html_file.name)
+            print(f"  Added: {html_file.name}")
+    
+    print(f"\n✅ Results package created: {package_path}")
+    print(f"📥 Download with: scp remote:{package_path} ./")
     
     print("\n" + "=" * 70)
     print("Analysis complete!")
