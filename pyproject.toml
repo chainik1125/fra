@@ -1,5 +1,5 @@
 [project]
-name = "bad_vec"
+name = "fra"
 version = "0.0.1"
 description = "Sample repository using Apollo best engineering practices"
 requires-python = ">=3.11"
@@ -13,6 +13,12 @@ dependencies = [
     "tqdm",
     "pytest",
     "ipykernel",
+    "transformer-lens",
+    "sae-lens",
+    "datasets",
+    "einops",
+    "jaxtyping",
+    "transformers",
 ]
 
 [project.optional-dependencies]
@@ -27,7 +33,7 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-packages = ["bad_vec"]
+packages = ["fra"]
 
 [tool.ruff]
 line-length = 100
@@ -57,7 +63,7 @@ docstring-code-format = true
 known-third-party = ["wandb"]
 
 [tool.pyright]
-include = ["bad_vec", "tests"]
+include = ["fra", "tests"]
 
 strictListInference = true
 strictDictionaryInference = true

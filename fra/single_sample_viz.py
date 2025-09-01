@@ -32,6 +32,48 @@ def get_neuronpedia_url(layer: int, feature_idx: int, embed: bool = False) -> st
     return base_url
 
 
+def fetch_neuronpedia_explanation(layer: int, feature_idx: int, timeout: int = 2) -> str:
+    """
+    Fetch feature explanation from Neuronpedia API.
+    
+    Args:
+        layer: Layer number
+        feature_idx: Feature index
+        timeout: Request timeout in seconds
+        
+    Returns:
+        Feature explanation string or fallback message
+    """
+    import requests
+    
+    # Try to fetch from Neuronpedia API
+    api_url = f"https://www.neuronpedia.org/api/feature/gpt2-small/{layer}-att-kk/{feature_idx}"
+    
+    try:
+        response = requests.get(api_url, timeout=timeout)
+        if response.status_code == 200:
+            data = response.json()
+            
+            # Try to get explanation from various possible fields
+            explanation = data.get('explanation', '')
+            if not explanation:
+                explanation = data.get('description', '')
+            if not explanation:
+                explanation = data.get('label', '')
+            if not explanation and 'explanations' in data and data['explanations']:
+                # Sometimes it's in an array
+                explanation = data['explanations'][0].get('description', '')
+            
+            if explanation:
+                return explanation
+                
+        return f"Feature activates on specific patterns (see Neuronpedia for details)"
+    
+    except Exception as e:
+        # Fallback for network issues or API unavailable
+        return f"Feature explanation unavailable (network error)"
+
+
 def create_fra_dashboard(
     model: Any,
     sae: Any,
@@ -85,14 +127,31 @@ def create_fra_dashboard(
         verbose=True
     )
     
+    # Get feature activations for all tokens
+    from fra.induction_head import get_attention_activations
+    activations = get_attention_activations(model, text, layer=layer, max_length=128)
+    feature_activations = sae.encode(activations)  # [seq_len, d_sae]
+    
     # Get top interactions
     top_interactions = get_top_feature_interactions(
         fra_result['fra_matrix'],
         top_k=top_k_interactions
     )
     
-    # Build feature URLs for Neuronpedia
-    print("Building Neuronpedia links...")
+    # Build feature URLs and fetch explanations for Neuronpedia
+    print("Fetching feature explanations from Neuronpedia...")
+    
+    # Collect unique features and fetch their explanations
+    unique_features = set()
+    for q_feat, k_feat, _ in top_interactions[:top_k_interactions]:
+        unique_features.add(q_feat)
+        unique_features.add(k_feat)
+    
+    feature_explanations = {}
+    for feat in unique_features:
+        explanation = fetch_neuronpedia_explanation(layer, feat)
+        feature_explanations[feat] = explanation
+        print(f"  Feature {feat}: {explanation[:50]}..." if len(explanation) > 50 else f"  Feature {feat}: {explanation}")
     
     # Tokenize text for display
     tokens = model.tokenizer.encode(text)
@@ -331,6 +390,67 @@ def create_fra_dashboard(
             text-decoration: underline !important;
         }}
         
+        .text-panels {{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }}
+        
+        .text-panel {{
+            background: white;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+        }}
+        
+        .text-panel h5 {{
+            margin: 0 0 10px 0;
+            color: #495057;
+            font-size: 0.9em;
+            font-weight: 600;
+        }}
+        
+        .text-panel .tokens {{
+            font-family: 'Courier New', monospace;
+            line-height: 1.8;
+            font-size: 0.9em;
+        }}
+        
+        .token-highlight {{
+            padding: 2px 4px;
+            border-radius: 3px;
+            margin: 1px;
+            display: inline-block;
+            transition: all 0.2s;
+        }}
+        
+        .highlight-query {{
+            background: rgba(102, 126, 234, 0.3);
+            border: 1px solid rgba(102, 126, 234, 0.5);
+        }}
+        
+        .highlight-key {{
+            background: rgba(118, 75, 162, 0.3);
+            border: 1px solid rgba(118, 75, 162, 0.5);
+        }}
+        
+        .highlight-both {{
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.4) 0%, rgba(118, 75, 162, 0.4) 100%);
+            border: 1px solid #667eea;
+            font-weight: bold;
+        }}
+        
+        .token-strength {{
+            font-size: 0.7em;
+            vertical-align: super;
+            color: #6c757d;
+            margin-left: 2px;
+        }}
+        
         @media (max-width: 768px) {{
             .feature-pair {{
                 grid-template-columns: 1fr;
@@ -338,6 +458,10 @@ def create_fra_dashboard(
             
             .arrow {{
                 text-align: center;
+            }}
+            
+            .text-panels {{
+                grid-template-columns: 1fr;
             }}
         }}
     </style>
@@ -390,6 +514,48 @@ def create_fra_dashboard(
         strength_class = "positive" if strength > 0 else "negative"
         arrow_symbol = "→" if strength > 0 else "←"
         
+        # Get activation strengths for each token for this feature pair
+        query_activations = feature_activations[:, q_feat].cpu().numpy()
+        key_activations = feature_activations[:, k_feat].cpu().numpy()
+        
+        # Create highlighted text for each panel
+        query_tokens_html = ""
+        key_tokens_html = ""
+        interaction_tokens_html = ""
+        
+        for idx, token_str in enumerate(token_strings[:fra_result['seq_len']]):
+            escaped_token = html.escape(token_str)
+            
+            # Query panel - highlight if query feature is active
+            if query_activations[idx] > 0.01:
+                opacity = min(1.0, query_activations[idx] / query_activations.max()) if query_activations.max() > 0 else 0
+                query_tokens_html += f'<span class="token-highlight highlight-query" style="opacity: {0.3 + 0.7*opacity}">{escaped_token}</span>'
+            else:
+                query_tokens_html += f'<span class="token-highlight">{escaped_token}</span>'
+            
+            # Key panel - highlight if key feature is active
+            if key_activations[idx] > 0.01:
+                opacity = min(1.0, key_activations[idx] / key_activations.max()) if key_activations.max() > 0 else 0
+                key_tokens_html += f'<span class="token-highlight highlight-key" style="opacity: {0.3 + 0.7*opacity}">{escaped_token}</span>'
+            else:
+                key_tokens_html += f'<span class="token-highlight">{escaped_token}</span>'
+            
+            # Interaction panel - highlight if both are active
+            if query_activations[idx] > 0.01 and key_activations[idx] > 0.01:
+                combined_strength = (query_activations[idx] * key_activations[idx]) ** 0.5
+                opacity = min(1.0, combined_strength / max(query_activations.max(), key_activations.max())) if max(query_activations.max(), key_activations.max()) > 0 else 0
+                interaction_tokens_html += f'<span class="token-highlight highlight-both" style="opacity: {0.3 + 0.7*opacity}">{escaped_token}</span>'
+            elif query_activations[idx] > 0.01:
+                interaction_tokens_html += f'<span class="token-highlight highlight-query" style="opacity: 0.3">{escaped_token}</span>'
+            elif key_activations[idx] > 0.01:
+                interaction_tokens_html += f'<span class="token-highlight highlight-key" style="opacity: 0.3">{escaped_token}</span>'
+            else:
+                interaction_tokens_html += f'<span class="token-highlight">{escaped_token}</span>'
+        
+        # Get explanations for this feature pair
+        q_explanation = feature_explanations.get(q_feat, "No explanation available")
+        k_explanation = feature_explanations.get(k_feat, "No explanation available")
+        
         html_content += f"""
                 <div class="{card_class}">
                     <div class="interaction-header">
@@ -399,19 +565,30 @@ def create_fra_dashboard(
                     <div class="feature-pair">
                         <div class="feature-box">
                             <h4>Query: <a href="{q_url}" target="_blank" style="color: #667eea; text-decoration: none;">Feature {q_feat} ↗</a></h4>
-                            <p class="feature-description">Click feature number above to view on Neuronpedia</p>
-                            <button onclick="loadFeatureInfo({layer}, {q_feat}, 'q_{i}')" class="load-btn">Load Description</button>
-                            <div id="q_{i}_desc" class="feature-desc-content"></div>
+                            <p class="feature-description" style="margin: 10px 0; padding: 8px; background: #f8f9fa; border-radius: 4px; font-size: 0.9em; color: #555; line-height: 1.4;">{q_explanation}</p>
                         </div>
                         <div class="arrow">{arrow_symbol}</div>
                         <div class="feature-box">
                             <h4>Key: <a href="{k_url}" target="_blank" style="color: #667eea; text-decoration: none;">Feature {k_feat} ↗</a></h4>
-                            <p class="feature-description">Click feature number above to view on Neuronpedia</p>
-                            <button onclick="loadFeatureInfo({layer}, {k_feat}, 'k_{i}')" class="load-btn">Load Description</button>
-                            <div id="k_{i}_desc" class="feature-desc-content"></div>
+                            <p class="feature-description" style="margin: 10px 0; padding: 8px; background: #f8f9fa; border-radius: 4px; font-size: 0.9em; color: #555; line-height: 1.4;">{k_explanation}</p>
                         </div>
                     </div>
                     {f'<div style="margin-top: 15px; padding: 10px; background: #fff3cd; border-radius: 5px; text-align: center;"><strong>⚡ Self-Interaction</strong> - Potential induction behavior</div>' if is_self else ''}
+                    
+                    <div class="text-panels">
+                        <div class="text-panel">
+                            <h5>🔵 Query Feature {q_feat} Activations</h5>
+                            <div class="tokens">{query_tokens_html}</div>
+                        </div>
+                        <div class="text-panel">
+                            <h5>🟣 Key Feature {k_feat} Activations</h5>
+                            <div class="tokens">{key_tokens_html}</div>
+                        </div>
+                        <div class="text-panel">
+                            <h5>🔀 Combined Interaction</h5>
+                            <div class="tokens">{interaction_tokens_html}</div>
+                        </div>
+                    </div>
                 </div>
 """
     
@@ -421,21 +598,6 @@ def create_fra_dashboard(
     </div>
     
     <script>
-        // Function to load feature info in iframe
-        function loadFeatureInfo(layer, featureId, targetId) {
-            const targetDiv = document.getElementById(targetId + '_desc');
-            const embedUrl = `https://www.neuronpedia.org/gpt2-small/${layer}-att-kk/${featureId}?embed=true&embedexplanation=true&embedplots=true&embedtest=false`;
-            
-            // Toggle display
-            if (targetDiv.classList.contains('loaded') && targetDiv.innerHTML !== '') {
-                targetDiv.classList.remove('loaded');
-                targetDiv.innerHTML = '';
-            } else {
-                targetDiv.innerHTML = `<iframe src="${embedUrl}" style="width:100%; height:400px; border:none; border-radius:5px;"></iframe>`;
-                targetDiv.classList.add('loaded');
-            }
-        }
-        
         // Add interactive features
         document.addEventListener('DOMContentLoaded', function() {
             // Animate stats on load
@@ -486,40 +648,115 @@ def create_fra_dashboard(
     return str(output_path)
 
 
-def main():
-    """Generate FRA dashboard for a sample text."""
+def generate_dashboard_from_config(
+    model=None,
+    sae=None,
+    text=None,
+    layer=5,
+    head=0,
+    top_k_features=20,
+    top_k_interactions=30,
+    use_timestamp=False,
+    config_path=None,
+    device="cuda"
+):
+    """
+    Single-line function to generate FRA dashboard with flexible parameters.
+    
+    Can be called in three ways:
+    1. With model and sae already loaded: generate_dashboard_from_config(model, sae, text)
+    2. With config file: generate_dashboard_from_config(config_path="config.yaml")
+    3. With defaults: generate_dashboard_from_config()
+    
+    Args:
+        model: Pre-loaded HookedTransformer model (optional)
+        sae: Pre-loaded SAELensAttentionSAE (optional)
+        text: Text to analyze (optional, uses default if not provided)
+        layer: Layer number (default: 5)
+        head: Head number (default: 0)
+        top_k_features: Number of top features per position (default: 20)
+        top_k_interactions: Number of top interactions to show (default: 30)
+        use_timestamp: Whether to add timestamp to filename (default: False)
+        config_path: Path to config file (optional, overrides other params)
+        device: Device to use (default: "cuda")
+        
+    Returns:
+        Path to generated dashboard
+    """
     import sys
     sys.path.append(str(Path(__file__).parent.parent))
     
-    from fra.induction_head import SAELensAttentionSAE
-    
     torch.set_grad_enabled(False)
     
-    # Load model and SAE
-    print("Loading model and SAE...")
-    model = HookedTransformer.from_pretrained("gpt2-small", device="cuda")
+    # Load from config if provided
+    if config_path:
+        from fra.utils import load_config, load_dataset_hf
+        config = load_config(str(config_path))
+        layer = config["sae"]["layer"]
+        top_k_features = config.get("fra", {}).get("top_k_features", 20)
+        device = config["model"]["device"] if torch.cuda.is_available() else "cpu"
+        
+        # Load dataset for text if not provided
+        if text is None:
+            dataset = load_dataset_hf(
+                dataset_name=config["dataset"]["name"],
+                split=config["dataset"]["split"],
+                streaming=config["dataset"].get("streaming", True),
+                seed=config["experiment"]["seed"]
+            )
+            if hasattr(dataset, '__iter__'):
+                sample = next(iter(dataset))
+                text = sample['text'][:config["dataset"].get("max_length", 128)]
+            else:
+                sample = dataset[0]
+                text = sample['text'][:config["dataset"].get("max_length", 128)]
     
-    RELEASE = "gpt2-small-hook-z-kk"
-    SAE_ID = "blocks.5.hook_z"
-    sae = SAELensAttentionSAE(RELEASE, SAE_ID, device="cuda")
+    # Use default text if none provided
+    if text is None:
+        text = "The cat sat on the mat. The cat was happy. The dog ran in the park. The dog was tired."
     
-    # Sample text with repetition (good for finding induction)
-    text = "The cat sat on the mat. The cat was happy. The dog ran in the park. The dog was tired."
+    # Load model if not provided
+    if model is None:
+        print("Loading model...")
+        model = HookedTransformer.from_pretrained("gpt2-small", device=device)
     
-    # Generate dashboard (will automatically save to results folder)
+    # Load SAE if not provided
+    if sae is None:
+        from fra.induction_head import SAELensAttentionSAE
+        print(f"Loading SAE for layer {layer}...")
+        RELEASE = "gpt2-small-hook-z-kk"
+        SAE_ID = f"blocks.{layer}.hook_z"
+        sae = SAELensAttentionSAE(RELEASE, SAE_ID, device=device)
+    
+    # Generate dashboard
+    print(f"Generating dashboard for layer {layer}, head {head}...")
     dashboard_path = create_fra_dashboard(
         model=model,
         sae=sae,
         text=text,
+        layer=layer,
+        head=head,
+        top_k_features=top_k_features,
+        top_k_interactions=top_k_interactions,
+        use_timestamp=use_timestamp
+    )
+    
+    print(f"✅ Dashboard saved to: {dashboard_path}")
+    return dashboard_path
+
+
+def main():
+    """Generate FRA dashboard for a sample text."""
+    # Example usage of the flexible function
+    dashboard_path = generate_dashboard_from_config(
+        text="The cat sat on the mat. The cat was happy. The dog ran in the park. The dog was tired.",
         layer=5,
         head=0,
         top_k_features=20,
         top_k_interactions=30
     )
     
-    print(f"\n✅ Dashboard generated successfully!")
-    print(f"📁 Open {dashboard_path} in your browser to view the interactive visualization.")
-    
+    print(f"\n📁 Open {dashboard_path} in your browser to view the interactive visualization.")
     return dashboard_path
 
 

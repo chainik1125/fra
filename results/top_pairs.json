@@ -1,0 +1,1408 @@
+{
+  "layer": 5,
+  "head": 0,
+  "num_samples": 20,
+  "total_pairs": 4214465,
+  "top_pairs": [
+    {
+      "query_feature": 25247,
+      "key_feature": 25247,
+      "average": 3.957754611968994,
+      "sum": 3.957754611968994,
+      "count": 1.0
+    },
+    {
+      "query_feature": 44620,
+      "key_feature": 44620,
+      "average": 3.4442529678344727,
+      "sum": 3.4442529678344727,
+      "count": 1.0
+    },
+    {
+      "query_feature": 23477,
+      "key_feature": 23477,
+      "average": 2.8624396324157715,
+      "sum": 2.8624396324157715,
+      "count": 1.0
+    },
+    {
+      "query_feature": 47820,
+      "key_feature": 47820,
+      "average": 2.7543818950653076,
+      "sum": 2.7543818950653076,
+      "count": 1.0
+    },
+    {
+      "query_feature": 31300,
+      "key_feature": 31300,
+      "average": 2.7167575359344482,
+      "sum": 2.7167575359344482,
+      "count": 1.0
+    },
+    {
+      "query_feature": 21799,
+      "key_feature": 21799,
+      "average": 2.7119624614715576,
+      "sum": 8.135887145996094,
+      "count": 3.0
+    },
+    {
+      "query_feature": 9937,
+      "key_feature": 9937,
+      "average": 2.4497978687286377,
+      "sum": 7.349393367767334,
+      "count": 3.0
+    },
+    {
+      "query_feature": 1535,
+      "key_feature": 1535,
+      "average": 2.4078943729400635,
+      "sum": 2.4078943729400635,
+      "count": 1.0
+    },
+    {
+      "query_feature": 31300,
+      "key_feature": 23477,
+      "average": 2.37597393989563,
+      "sum": 2.37597393989563,
+      "count": 1.0
+    },
+    {
+      "query_feature": 44620,
+      "key_feature": 35305,
+      "average": 2.242662191390991,
+      "sum": 2.242662191390991,
+      "count": 1.0
+    },
+    {
+      "query_feature": 1507,
+      "key_feature": 31300,
+      "average": 2.1189892292022705,
+      "sum": 4.237978458404541,
+      "count": 2.0
+    },
+    {
+      "query_feature": 18687,
+      "key_feature": 3598,
+      "average": 2.050706148147583,
+      "sum": 2.050706148147583,
+      "count": 1.0
+    },
+    {
+      "query_feature": 18687,
+      "key_feature": 18687,
+      "average": 2.029630661010742,
+      "sum": 2.029630661010742,
+      "count": 1.0
+    },
+    {
+      "query_feature": 1507,
+      "key_feature": 23477,
+      "average": 2.0188937187194824,
+      "sum": 4.037787437438965,
+      "count": 2.0
+    },
+    {
+      "query_feature": 44620,
+      "key_feature": 3598,
+      "average": 1.9471533298492432,
+      "sum": 1.9471533298492432,
+      "count": 1.0
+    },
+    {
+      "query_feature": 1507,
+      "key_feature": 1507,
+      "average": 1.9109660387039185,
+      "sum": 5.732898235321045,
+      "count": 3.0
+    },
+    {
+      "query_feature": 1507,
+      "key_feature": 44620,
+      "average": 1.902909755706787,
+      "sum": 3.805819511413574,
+      "count": 2.0
+    },
+    {
+      "query_feature": 45555,
+      "key_feature": 27178,
+      "average": 1.872775673866272,
+      "sum": 3.745551347732544,
+      "count": 2.0
+    },
+    {
+      "query_feature": 1507,
+      "key_feature": 3598,
+      "average": 1.820333480834961,
+      "sum": 3.640666961669922,
+      "count": 2.0
+    },
+    {
+      "query_feature": 20778,
+      "key_feature": 20778,
+      "average": 1.7775193452835083,
+      "sum": 10.665116310119629,
+      "count": 6.0
+    },
+    {
+      "query_feature": 23477,
+      "key_feature": 35305,
+      "average": 1.7532711029052734,
+      "sum": 1.7532711029052734,
+      "count": 1.0
+    },
+    {
+      "query_feature": 24993,
+      "key_feature": 24993,
+      "average": 1.7262814044952393,
+      "sum": 1.7262814044952393,
+      "count": 1.0
+    },
+    {
+      "query_feature": 33510,
+      "key_feature": 33510,
+      "average": 1.7177144289016724,
+      "sum": 1.7177144289016724,
+      "count": 1.0
+    },
+    {
+      "query_feature": 35305,
+      "key_feature": 35305,
+      "average": 1.697998046875,
+      "sum": 1.697998046875,
+      "count": 1.0
+    },
+    {
+      "query_feature": 18687,
+      "key_feature": 23477,
+      "average": 1.6861063241958618,
+      "sum": 1.6861063241958618,
+      "count": 1.0
+    },
+    {
+      "query_feature": 18687,
+      "key_feature": 44620,
+      "average": 1.6628717184066772,
+      "sum": 1.6628717184066772,
+      "count": 1.0
+    },
+    {
+      "query_feature": 18232,
+      "key_feature": 18232,
+      "average": 1.642917513847351,
+      "sum": 9.857504844665527,
+      "count": 6.0
+    },
+    {
+      "query_feature": 31075,
+      "key_feature": 31075,
+      "average": 1.5967575311660767,
+      "sum": 1.5967575311660767,
+      "count": 1.0
+    },
+    {
+      "query_feature": 11820,
+      "key_feature": 11820,
+      "average": 1.511817216873169,
+      "sum": 1.511817216873169,
+      "count": 1.0
+    },
+    {
+      "query_feature": 27466,
+      "key_feature": 27466,
+      "average": 1.5004377365112305,
+      "sum": 1.5004377365112305,
+      "count": 1.0
+    },
+    {
+      "query_feature": 45555,
+      "key_feature": 33510,
+      "average": 1.4987831115722656,
+      "sum": 2.9975662231445312,
+      "count": 2.0
+    },
+    {
+      "query_feature": 41650,
+      "key_feature": 41650,
+      "average": 1.496334195137024,
+      "sum": 1.496334195137024,
+      "count": 1.0
+    },
+    {
+      "query_feature": 43137,
+      "key_feature": 43137,
+      "average": 1.491478681564331,
+      "sum": 1.491478681564331,
+      "count": 1.0
+    },
+    {
+      "query_feature": 19020,
+      "key_feature": 19020,
+      "average": 1.4713268280029297,
+      "sum": 1.4713268280029297,
+      "count": 1.0
+    },
+    {
+      "query_feature": 20017,
+      "key_feature": 20017,
+      "average": 1.4586076736450195,
+      "sum": 1.4586076736450195,
+      "count": 1.0
+    },
+    {
+      "query_feature": 44620,
+      "key_feature": 42993,
+      "average": 1.451738715171814,
+      "sum": 2.903477430343628,
+      "count": 2.0
+    },
+    {
+      "query_feature": 27178,
+      "key_feature": 27178,
+      "average": 1.4400883913040161,
+      "sum": 1.4400883913040161,
+      "count": 1.0
+    },
+    {
+      "query_feature": 44620,
+      "key_feature": 20017,
+      "average": 1.4396668672561646,
+      "sum": 1.4396668672561646,
+      "count": 1.0
+    },
+    {
+      "query_feature": 1507,
+      "key_feature": 18687,
+      "average": 1.4346213340759277,
+      "sum": 2.8692426681518555,
+      "count": 2.0
+    },
+    {
+      "query_feature": 6036,
+      "key_feature": 6036,
+      "average": 1.363574743270874,
+      "sum": 1.363574743270874,
+      "count": 1.0
+    },
+    {
+      "query_feature": 18687,
+      "key_feature": 31300,
+      "average": 1.360438346862793,
+      "sum": 1.360438346862793,
+      "count": 1.0
+    },
+    {
+      "query_feature": 1507,
+      "key_feature": 1535,
+      "average": 1.3442102670669556,
+      "sum": 2.688420534133911,
+      "count": 2.0
+    },
+    {
+      "query_feature": 17766,
+      "key_feature": 17766,
+      "average": 1.3386472463607788,
+      "sum": 20.079708099365234,
+      "count": 15.0
+    },
+    {
+      "query_feature": 44620,
+      "key_feature": 36472,
+      "average": 1.3157882690429688,
+      "sum": 2.6315765380859375,
+      "count": 2.0
+    },
+    {
+      "query_feature": 1535,
+      "key_feature": 44620,
+      "average": 1.3157167434692383,
+      "sum": 1.3157167434692383,
+      "count": 1.0
+    },
+    {
+      "query_feature": 3964,
+      "key_feature": 3964,
+      "average": 1.2873252630233765,
+      "sum": 3.86197566986084,
+      "count": 3.0
+    },
+    {
+      "query_feature": 1507,
+      "key_feature": 35305,
+      "average": 1.2863833904266357,
+      "sum": 2.5727667808532715,
+      "count": 2.0
+    },
+    {
+      "query_feature": 33510,
+      "key_feature": 3598,
+      "average": 1.2737590074539185,
+      "sum": 1.2737590074539185,
+      "count": 1.0
+    },
+    {
+      "query_feature": 39172,
+      "key_feature": 39172,
+      "average": 1.231498122215271,
+      "sum": 1.231498122215271,
+      "count": 1.0
+    },
+    {
+      "query_feature": 31300,
+      "key_feature": 35305,
+      "average": 1.2245179414749146,
+      "sum": 1.2245179414749146,
+      "count": 1.0
+    },
+    {
+      "query_feature": 11996,
+      "key_feature": 11996,
+      "average": 1.189461350440979,
+      "sum": 1.189461350440979,
+      "count": 1.0
+    },
+    {
+      "query_feature": 24907,
+      "key_feature": 24907,
+      "average": 1.176117181777954,
+      "sum": 1.176117181777954,
+      "count": 1.0
+    },
+    {
+      "query_feature": 26820,
+      "key_feature": 26820,
+      "average": 1.1682511568069458,
+      "sum": 1.1682511568069458,
+      "count": 1.0
+    },
+    {
+      "query_feature": 44620,
+      "key_feature": 43695,
+      "average": 1.1638085842132568,
+      "sum": 2.3276171684265137,
+      "count": 2.0
+    },
+    {
+      "query_feature": 31300,
+      "key_feature": 27178,
+      "average": 1.1562926769256592,
+      "sum": 1.1562926769256592,
+      "count": 1.0
+    },
+    {
+      "query_feature": 43403,
+      "key_feature": 31300,
+      "average": 1.099595069885254,
+      "sum": 1.099595069885254,
+      "count": 1.0
+    },
+    {
+      "query_feature": 18687,
+      "key_feature": 35305,
+      "average": 1.093913197517395,
+      "sum": 1.093913197517395,
+      "count": 1.0
+    },
+    {
+      "query_feature": 47820,
+      "key_feature": 40717,
+      "average": 1.0848110914230347,
+      "sum": 1.0848110914230347,
+      "count": 1.0
+    },
+    {
+      "query_feature": 1535,
+      "key_feature": 42993,
+      "average": 1.0758988857269287,
+      "sum": 2.1517977714538574,
+      "count": 2.0
+    },
+    {
+      "query_feature": 45555,
+      "key_feature": 45555,
+      "average": 1.0746129751205444,
+      "sum": 3.223839044570923,
+      "count": 3.0
+    },
+    {
+      "query_feature": 18687,
+      "key_feature": 1535,
+      "average": 1.0569350719451904,
+      "sum": 1.0569350719451904,
+      "count": 1.0
+    },
+    {
+      "query_feature": 39924,
+      "key_feature": 39924,
+      "average": 1.052539587020874,
+      "sum": 1.052539587020874,
+      "count": 1.0
+    },
+    {
+      "query_feature": 31300,
+      "key_feature": 3598,
+      "average": 1.046550989151001,
+      "sum": 1.046550989151001,
+      "count": 1.0
+    },
+    {
+      "query_feature": 24907,
+      "key_feature": 22496,
+      "average": 1.037137746810913,
+      "sum": 1.037137746810913,
+      "count": 1.0
+    },
+    {
+      "query_feature": 1535,
+      "key_feature": 31300,
+      "average": 1.0359116792678833,
+      "sum": 1.0359116792678833,
+      "count": 1.0
+    },
+    {
+      "query_feature": 10382,
+      "key_feature": 10382,
+      "average": 1.0239650011062622,
+      "sum": 3.071895122528076,
+      "count": 3.0
+    },
+    {
+      "query_feature": 12749,
+      "key_feature": 12749,
+      "average": 1.0237489938735962,
+      "sum": 1.0237489938735962,
+      "count": 1.0
+    },
+    {
+      "query_feature": 23477,
+      "key_feature": 3598,
+      "average": 1.02208411693573,
+      "sum": 1.02208411693573,
+      "count": 1.0
+    },
+    {
+      "query_feature": 33893,
+      "key_feature": 33893,
+      "average": 1.0217876434326172,
+      "sum": 3.0653629302978516,
+      "count": 3.0
+    },
+    {
+      "query_feature": 1535,
+      "key_feature": 20017,
+      "average": 1.0192047357559204,
+      "sum": 1.0192047357559204,
+      "count": 1.0
+    },
+    {
+      "query_feature": 33510,
+      "key_feature": 35305,
+      "average": 1.007003903388977,
+      "sum": 1.007003903388977,
+      "count": 1.0
+    },
+    {
+      "query_feature": 23477,
+      "key_feature": 30097,
+      "average": 0.9903472661972046,
+      "sum": 1.9806945323944092,
+      "count": 2.0
+    },
+    {
+      "query_feature": 45101,
+      "key_feature": 21799,
+      "average": 0.9796448945999146,
+      "sum": 1.959289789199829,
+      "count": 2.0
+    },
+    {
+      "query_feature": 18396,
+      "key_feature": 18396,
+      "average": 0.9733731746673584,
+      "sum": 5.84023904800415,
+      "count": 6.0
+    },
+    {
+      "query_feature": 44334,
+      "key_feature": 44334,
+      "average": 0.9670407772064209,
+      "sum": 2.9011223316192627,
+      "count": 3.0
+    },
+    {
+      "query_feature": 20778,
+      "key_feature": 22496,
+      "average": 0.9651742577552795,
+      "sum": 2.8955228328704834,
+      "count": 3.0
+    },
+    {
+      "query_feature": 11704,
+      "key_feature": 47820,
+      "average": 0.9649428725242615,
+      "sum": 0.9649428725242615,
+      "count": 1.0
+    },
+    {
+      "query_feature": 43403,
+      "key_feature": 42993,
+      "average": 0.951471209526062,
+      "sum": 1.902942419052124,
+      "count": 2.0
+    },
+    {
+      "query_feature": 3620,
+      "key_feature": 3620,
+      "average": 0.948032021522522,
+      "sum": 0.948032021522522,
+      "count": 1.0
+    },
+    {
+      "query_feature": 24663,
+      "key_feature": 24663,
+      "average": 0.9432533383369446,
+      "sum": 0.9432533383369446,
+      "count": 1.0
+    },
+    {
+      "query_feature": 36796,
+      "key_feature": 36796,
+      "average": 0.9369943737983704,
+      "sum": 0.9369943737983704,
+      "count": 1.0
+    },
+    {
+      "query_feature": 46917,
+      "key_feature": 1535,
+      "average": 0.9313870072364807,
+      "sum": 0.9313870072364807,
+      "count": 1.0
+    },
+    {
+      "query_feature": 24993,
+      "key_feature": 3964,
+      "average": 0.9311087727546692,
+      "sum": 1.8622175455093384,
+      "count": 2.0
+    },
+    {
+      "query_feature": 1535,
+      "key_feature": 3598,
+      "average": 0.9164029359817505,
+      "sum": 0.9164029359817505,
+      "count": 1.0
+    },
+    {
+      "query_feature": 44620,
+      "key_feature": 13085,
+      "average": 0.9129987359046936,
+      "sum": 0.9129987359046936,
+      "count": 1.0
+    },
+    {
+      "query_feature": 31308,
+      "key_feature": 31308,
+      "average": 0.9115616679191589,
+      "sum": 2.734684944152832,
+      "count": 3.0
+    },
+    {
+      "query_feature": 31300,
+      "key_feature": 32111,
+      "average": 0.9102102518081665,
+      "sum": 1.820420503616333,
+      "count": 2.0
+    },
+    {
+      "query_feature": 23477,
+      "key_feature": 20017,
+      "average": 0.9100125432014465,
+      "sum": 0.9100125432014465,
+      "count": 1.0
+    },
+    {
+      "query_feature": 41990,
+      "key_feature": 41990,
+      "average": 0.905146598815918,
+      "sum": 2.715439796447754,
+      "count": 3.0
+    },
+    {
+      "query_feature": 1535,
+      "key_feature": 1092,
+      "average": 0.8976871967315674,
+      "sum": 1.7953743934631348,
+      "count": 2.0
+    },
+    {
+      "query_feature": 7388,
+      "key_feature": 7388,
+      "average": 0.8961054682731628,
+      "sum": 2.6883163452148438,
+      "count": 3.0
+    },
+    {
+      "query_feature": 43403,
+      "key_feature": 35305,
+      "average": 0.8926728963851929,
+      "sum": 0.8926728963851929,
+      "count": 1.0
+    },
+    {
+      "query_feature": 23477,
+      "key_feature": 32111,
+      "average": 0.8846582770347595,
+      "sum": 1.769316554069519,
+      "count": 2.0
+    },
+    {
+      "query_feature": 1535,
+      "key_feature": 13085,
+      "average": 0.8819208741188049,
+      "sum": 0.8819208741188049,
+      "count": 1.0
+    },
+    {
+      "query_feature": 25247,
+      "key_feature": 42649,
+      "average": 0.8745667934417725,
+      "sum": 0.8745667934417725,
+      "count": 1.0
+    },
+    {
+      "query_feature": 43403,
+      "key_feature": 23477,
+      "average": 0.8744815587997437,
+      "sum": 0.8744815587997437,
+      "count": 1.0
+    },
+    {
+      "query_feature": 2749,
+      "key_feature": 2749,
+      "average": 0.8644004464149475,
+      "sum": 0.8644004464149475,
+      "count": 1.0
+    },
+    {
+      "query_feature": 1535,
+      "key_feature": 33510,
+      "average": 0.8572679162025452,
+      "sum": 0.8572679162025452,
+      "count": 1.0
+    },
+    {
+      "query_feature": 36916,
+      "key_feature": 36916,
+      "average": 0.8570994734764099,
+      "sum": 0.8570994734764099,
+      "count": 1.0
+    },
+    {
+      "query_feature": 33758,
+      "key_feature": 33758,
+      "average": 0.8502787351608276,
+      "sum": 0.8502787351608276,
+      "count": 1.0
+    },
+    {
+      "query_feature": 34779,
+      "key_feature": 37897,
+      "average": 0.8455526828765869,
+      "sum": 0.8455526828765869,
+      "count": 1.0
+    },
+    {
+      "query_feature": 47914,
+      "key_feature": 43137,
+      "average": 0.8395634889602661,
+      "sum": 0.8395634889602661,
+      "count": 1.0
+    },
+    {
+      "query_feature": 23477,
+      "key_feature": 27178,
+      "average": 0.8386921286582947,
+      "sum": 0.8386921286582947,
+      "count": 1.0
+    },
+    {
+      "query_feature": 43403,
+      "key_feature": 32111,
+      "average": 0.8369527459144592,
+      "sum": 1.6739054918289185,
+      "count": 2.0
+    },
+    {
+      "query_feature": 11704,
+      "key_feature": 11704,
+      "average": 0.8358529210090637,
+      "sum": 0.8358529210090637,
+      "count": 1.0
+    },
+    {
+      "query_feature": 21234,
+      "key_feature": 21234,
+      "average": 0.8357839584350586,
+      "sum": 0.8357839584350586,
+      "count": 1.0
+    },
+    {
+      "query_feature": 44620,
+      "key_feature": 33510,
+      "average": 0.8349185585975647,
+      "sum": 0.8349185585975647,
+      "count": 1.0
+    },
+    {
+      "query_feature": 6812,
+      "key_feature": 6812,
+      "average": 0.8325942754745483,
+      "sum": 1.6651885509490967,
+      "count": 2.0
+    },
+    {
+      "query_feature": 31300,
+      "key_feature": 30097,
+      "average": 0.8321475982666016,
+      "sum": 1.6642951965332031,
+      "count": 2.0
+    },
+    {
+      "query_feature": 3719,
+      "key_feature": 44620,
+      "average": 0.8224046230316162,
+      "sum": 1.6448092460632324,
+      "count": 2.0
+    },
+    {
+      "query_feature": 31300,
+      "key_feature": 20017,
+      "average": 0.8123656511306763,
+      "sum": 0.8123656511306763,
+      "count": 1.0
+    },
+    {
+      "query_feature": 45555,
+      "key_feature": 1535,
+      "average": 0.810407817363739,
+      "sum": 1.620815634727478,
+      "count": 2.0
+    },
+    {
+      "query_feature": 45555,
+      "key_feature": 1507,
+      "average": 0.8096433877944946,
+      "sum": 3.2385735511779785,
+      "count": 4.0
+    },
+    {
+      "query_feature": 43403,
+      "key_feature": 27178,
+      "average": 0.8064086437225342,
+      "sum": 0.8064086437225342,
+      "count": 1.0
+    },
+    {
+      "query_feature": 8645,
+      "key_feature": 8645,
+      "average": 0.8057462573051453,
+      "sum": 2.417238712310791,
+      "count": 3.0
+    },
+    {
+      "query_feature": 1507,
+      "key_feature": 20017,
+      "average": 0.803899347782135,
+      "sum": 1.60779869556427,
+      "count": 2.0
+    },
+    {
+      "query_feature": 1507,
+      "key_feature": 30097,
+      "average": 0.8034353852272034,
+      "sum": 3.2137415409088135,
+      "count": 4.0
+    },
+    {
+      "query_feature": 45555,
+      "key_feature": 3598,
+      "average": 0.7996866106987,
+      "sum": 1.5993732213974,
+      "count": 2.0
+    },
+    {
+      "query_feature": 41006,
+      "key_feature": 3598,
+      "average": 0.7945566177368164,
+      "sum": 0.7945566177368164,
+      "count": 1.0
+    },
+    {
+      "query_feature": 9937,
+      "key_feature": 20778,
+      "average": 0.7820850014686584,
+      "sum": 4.69251012802124,
+      "count": 6.0
+    },
+    {
+      "query_feature": 34221,
+      "key_feature": 34221,
+      "average": 0.780797004699707,
+      "sum": 28.108692169189453,
+      "count": 36.0
+    },
+    {
+      "query_feature": 31075,
+      "key_feature": 33893,
+      "average": 0.7757421731948853,
+      "sum": 1.5514843463897705,
+      "count": 2.0
+    },
+    {
+      "query_feature": 1535,
+      "key_feature": 32111,
+      "average": 0.7756244540214539,
+      "sum": 1.5512489080429077,
+      "count": 2.0
+    },
+    {
+      "query_feature": 44620,
+      "key_feature": 27178,
+      "average": 0.7748305201530457,
+      "sum": 0.7748305201530457,
+      "count": 1.0
+    },
+    {
+      "query_feature": 1507,
+      "key_feature": 36472,
+      "average": 0.7739413380622864,
+      "sum": 3.0957653522491455,
+      "count": 4.0
+    },
+    {
+      "query_feature": 1507,
+      "key_feature": 41006,
+      "average": 0.7721031904220581,
+      "sum": 1.5442063808441162,
+      "count": 2.0
+    },
+    {
+      "query_feature": 44745,
+      "key_feature": 41650,
+      "average": 0.7623249888420105,
+      "sum": 0.7623249888420105,
+      "count": 1.0
+    },
+    {
+      "query_feature": 27466,
+      "key_feature": 19020,
+      "average": 0.761918842792511,
+      "sum": 0.761918842792511,
+      "count": 1.0
+    },
+    {
+      "query_feature": 41847,
+      "key_feature": 41847,
+      "average": 0.7613587975502014,
+      "sum": 2.284076452255249,
+      "count": 3.0
+    },
+    {
+      "query_feature": 25247,
+      "key_feature": 5312,
+      "average": 0.7608341574668884,
+      "sum": 0.7608341574668884,
+      "count": 1.0
+    },
+    {
+      "query_feature": 17312,
+      "key_feature": 17312,
+      "average": 0.7604764699935913,
+      "sum": 0.7604764699935913,
+      "count": 1.0
+    },
+    {
+      "query_feature": 43403,
+      "key_feature": 33510,
+      "average": 0.7463915348052979,
+      "sum": 0.7463915348052979,
+      "count": 1.0
+    },
+    {
+      "query_feature": 42993,
+      "key_feature": 35305,
+      "average": 0.7441586256027222,
+      "sum": 1.4883172512054443,
+      "count": 2.0
+    },
+    {
+      "query_feature": 23418,
+      "key_feature": 23418,
+      "average": 0.7433803677558899,
+      "sum": 0.7433803677558899,
+      "count": 1.0
+    },
+    {
+      "query_feature": 45059,
+      "key_feature": 1535,
+      "average": 0.7428825497627258,
+      "sum": 4.4572954177856445,
+      "count": 6.0
+    },
+    {
+      "query_feature": 26250,
+      "key_feature": 26250,
+      "average": 0.7418868541717529,
+      "sum": 2.225660562515259,
+      "count": 3.0
+    },
+    {
+      "query_feature": 21234,
+      "key_feature": 9161,
+      "average": 0.7400766611099243,
+      "sum": 0.7400766611099243,
+      "count": 1.0
+    },
+    {
+      "query_feature": 34057,
+      "key_feature": 34057,
+      "average": 0.7386654019355774,
+      "sum": 4.431992530822754,
+      "count": 6.0
+    },
+    {
+      "query_feature": 24993,
+      "key_feature": 47914,
+      "average": 0.7386267781257629,
+      "sum": 0.7386267781257629,
+      "count": 1.0
+    },
+    {
+      "query_feature": 674,
+      "key_feature": 674,
+      "average": 0.7327772974967957,
+      "sum": 0.7327772974967957,
+      "count": 1.0
+    },
+    {
+      "query_feature": 45555,
+      "key_feature": 35305,
+      "average": 0.7278434634208679,
+      "sum": 1.4556869268417358,
+      "count": 2.0
+    },
+    {
+      "query_feature": 44620,
+      "key_feature": 30097,
+      "average": 0.7235433459281921,
+      "sum": 1.4470866918563843,
+      "count": 2.0
+    },
+    {
+      "query_feature": 32111,
+      "key_feature": 32111,
+      "average": 0.7202655673027039,
+      "sum": 2.160796642303467,
+      "count": 3.0
+    },
+    {
+      "query_feature": 27178,
+      "key_feature": 30097,
+      "average": 0.718925416469574,
+      "sum": 0.718925416469574,
+      "count": 1.0
+    },
+    {
+      "query_feature": 19736,
+      "key_feature": 43137,
+      "average": 0.7178288698196411,
+      "sum": 1.4356577396392822,
+      "count": 2.0
+    },
+    {
+      "query_feature": 35305,
+      "key_feature": 12486,
+      "average": 0.7172292470932007,
+      "sum": 1.4344584941864014,
+      "count": 2.0
+    },
+    {
+      "query_feature": 26820,
+      "key_feature": 3964,
+      "average": 0.7165537476539612,
+      "sum": 1.4331074953079224,
+      "count": 2.0
+    },
+    {
+      "query_feature": 45101,
+      "key_feature": 45101,
+      "average": 0.7149151563644409,
+      "sum": 0.7149151563644409,
+      "count": 1.0
+    },
+    {
+      "query_feature": 26910,
+      "key_feature": 26910,
+      "average": 0.7131708860397339,
+      "sum": 0.7131708860397339,
+      "count": 1.0
+    },
+    {
+      "query_feature": 8645,
+      "key_feature": 10382,
+      "average": 0.7087365984916687,
+      "sum": 2.1262097358703613,
+      "count": 3.0
+    },
+    {
+      "query_feature": 39924,
+      "key_feature": 2183,
+      "average": 0.7000547647476196,
+      "sum": 0.7000547647476196,
+      "count": 1.0
+    },
+    {
+      "query_feature": 47693,
+      "key_feature": 47693,
+      "average": 0.6872731447219849,
+      "sum": 0.6872731447219849,
+      "count": 1.0
+    },
+    {
+      "query_feature": 6812,
+      "key_feature": 47693,
+      "average": 0.6843810081481934,
+      "sum": 0.6843810081481934,
+      "count": 1.0
+    },
+    {
+      "query_feature": 18709,
+      "key_feature": 18709,
+      "average": 0.6813182234764099,
+      "sum": 0.6813182234764099,
+      "count": 1.0
+    },
+    {
+      "query_feature": 12528,
+      "key_feature": 23477,
+      "average": 0.6790768504142761,
+      "sum": 0.6790768504142761,
+      "count": 1.0
+    },
+    {
+      "query_feature": 25247,
+      "key_feature": 16877,
+      "average": 0.6787932515144348,
+      "sum": 0.6787932515144348,
+      "count": 1.0
+    },
+    {
+      "query_feature": 45555,
+      "key_feature": 12486,
+      "average": 0.6784908175468445,
+      "sum": 2.713963270187378,
+      "count": 4.0
+    },
+    {
+      "query_feature": 41630,
+      "key_feature": 1507,
+      "average": 0.6762840747833252,
+      "sum": 1.3525681495666504,
+      "count": 2.0
+    },
+    {
+      "query_feature": 19020,
+      "key_feature": 12809,
+      "average": 0.6742578148841858,
+      "sum": 0.6742578148841858,
+      "count": 1.0
+    },
+    {
+      "query_feature": 18687,
+      "key_feature": 36472,
+      "average": 0.6736723184585571,
+      "sum": 1.3473446369171143,
+      "count": 2.0
+    },
+    {
+      "query_feature": 41847,
+      "key_feature": 45786,
+      "average": 0.672472357749939,
+      "sum": 1.344944715499878,
+      "count": 2.0
+    },
+    {
+      "query_feature": 46917,
+      "key_feature": 35305,
+      "average": 0.6689826846122742,
+      "sum": 0.6689826846122742,
+      "count": 1.0
+    },
+    {
+      "query_feature": 18687,
+      "key_feature": 20017,
+      "average": 0.6656034588813782,
+      "sum": 0.6656034588813782,
+      "count": 1.0
+    },
+    {
+      "query_feature": 47820,
+      "key_feature": 399,
+      "average": 0.6656009554862976,
+      "sum": 1.3312019109725952,
+      "count": 2.0
+    },
+    {
+      "query_feature": 46917,
+      "key_feature": 1507,
+      "average": 0.6634578108787537,
+      "sum": 1.3269156217575073,
+      "count": 2.0
+    },
+    {
+      "query_feature": 23679,
+      "key_feature": 23679,
+      "average": 0.6585127115249634,
+      "sum": 0.6585127115249634,
+      "count": 1.0
+    },
+    {
+      "query_feature": 1507,
+      "key_feature": 28059,
+      "average": 0.6573503613471985,
+      "sum": 1.314700722694397,
+      "count": 2.0
+    },
+    {
+      "query_feature": 22811,
+      "key_feature": 22811,
+      "average": 0.6564735770225525,
+      "sum": 1.9694207906723022,
+      "count": 3.0
+    },
+    {
+      "query_feature": 33510,
+      "key_feature": 27178,
+      "average": 0.6533572673797607,
+      "sum": 0.6533572673797607,
+      "count": 1.0
+    },
+    {
+      "query_feature": 1507,
+      "key_feature": 32111,
+      "average": 0.6513691544532776,
+      "sum": 2.6054766178131104,
+      "count": 4.0
+    },
+    {
+      "query_feature": 9937,
+      "key_feature": 24907,
+      "average": 0.64892578125,
+      "sum": 1.2978515625,
+      "count": 2.0
+    },
+    {
+      "query_feature": 24993,
+      "key_feature": 19736,
+      "average": 0.6481724977493286,
+      "sum": 0.6481724977493286,
+      "count": 1.0
+    },
+    {
+      "query_feature": 19466,
+      "key_feature": 44620,
+      "average": 0.6454721689224243,
+      "sum": 3.872833013534546,
+      "count": 6.0
+    },
+    {
+      "query_feature": 45101,
+      "key_feature": 2183,
+      "average": 0.6400354504585266,
+      "sum": 0.6400354504585266,
+      "count": 1.0
+    },
+    {
+      "query_feature": 399,
+      "key_feature": 399,
+      "average": 0.6393648386001587,
+      "sum": 1.918094515800476,
+      "count": 3.0
+    },
+    {
+      "query_feature": 7434,
+      "key_feature": 31300,
+      "average": 0.639335572719574,
+      "sum": 0.639335572719574,
+      "count": 1.0
+    },
+    {
+      "query_feature": 39784,
+      "key_feature": 47820,
+      "average": 0.6389813423156738,
+      "sum": 0.6389813423156738,
+      "count": 1.0
+    },
+    {
+      "query_feature": 6812,
+      "key_feature": 12243,
+      "average": 0.6374199986457825,
+      "sum": 0.6374199986457825,
+      "count": 1.0
+    },
+    {
+      "query_feature": 32111,
+      "key_feature": 20017,
+      "average": 0.6347436904907227,
+      "sum": 1.2694873809814453,
+      "count": 2.0
+    },
+    {
+      "query_feature": 21799,
+      "key_feature": 25723,
+      "average": 0.6341684460639954,
+      "sum": 1.2683368921279907,
+      "count": 2.0
+    },
+    {
+      "query_feature": 45059,
+      "key_feature": 27178,
+      "average": 0.6339877247810364,
+      "sum": 3.8039262294769287,
+      "count": 6.0
+    },
+    {
+      "query_feature": 47914,
+      "key_feature": 47554,
+      "average": 0.6263313293457031,
+      "sum": 1.2526626586914062,
+      "count": 2.0
+    },
+    {
+      "query_feature": 34779,
+      "key_feature": 36796,
+      "average": 0.6227933764457703,
+      "sum": 0.6227933764457703,
+      "count": 1.0
+    },
+    {
+      "query_feature": 41006,
+      "key_feature": 20017,
+      "average": 0.6223551034927368,
+      "sum": 0.6223551034927368,
+      "count": 1.0
+    },
+    {
+      "query_feature": 40636,
+      "key_feature": 40636,
+      "average": 0.6140760779380798,
+      "sum": 1.8422281742095947,
+      "count": 3.0
+    },
+    {
+      "query_feature": 45101,
+      "key_feature": 39924,
+      "average": 0.6121805906295776,
+      "sum": 0.6121805906295776,
+      "count": 1.0
+    },
+    {
+      "query_feature": 30824,
+      "key_feature": 24993,
+      "average": 0.6103649139404297,
+      "sum": 0.6103649139404297,
+      "count": 1.0
+    },
+    {
+      "query_feature": 3598,
+      "key_feature": 3598,
+      "average": 0.6101230978965759,
+      "sum": 0.6101230978965759,
+      "count": 1.0
+    },
+    {
+      "query_feature": 9161,
+      "key_feature": 25440,
+      "average": 0.6088153719902039,
+      "sum": 0.6088153719902039,
+      "count": 1.0
+    },
+    {
+      "query_feature": 18687,
+      "key_feature": 30097,
+      "average": 0.6085689663887024,
+      "sum": 1.2171379327774048,
+      "count": 2.0
+    },
+    {
+      "query_feature": 46917,
+      "key_feature": 18687,
+      "average": 0.6084185242652893,
+      "sum": 0.6084185242652893,
+      "count": 1.0
+    },
+    {
+      "query_feature": 41006,
+      "key_feature": 41006,
+      "average": 0.606501042842865,
+      "sum": 0.606501042842865,
+      "count": 1.0
+    },
+    {
+      "query_feature": 13997,
+      "key_feature": 43137,
+      "average": 0.6055042147636414,
+      "sum": 0.6055042147636414,
+      "count": 1.0
+    },
+    {
+      "query_feature": 4320,
+      "key_feature": 4320,
+      "average": 0.6051779985427856,
+      "sum": 0.6051779985427856,
+      "count": 1.0
+    },
+    {
+      "query_feature": 9161,
+      "key_feature": 9161,
+      "average": 0.6032267808914185,
+      "sum": 0.6032267808914185,
+      "count": 1.0
+    },
+    {
+      "query_feature": 1092,
+      "key_feature": 1092,
+      "average": 0.6032096743583679,
+      "sum": 1.809628963470459,
+      "count": 3.0
+    },
+    {
+      "query_feature": 45555,
+      "key_feature": 18687,
+      "average": 0.5988718271255493,
+      "sum": 1.1977436542510986,
+      "count": 2.0
+    },
+    {
+      "query_feature": 41630,
+      "key_feature": 1535,
+      "average": 0.5971159934997559,
+      "sum": 0.5971159934997559,
+      "count": 1.0
+    },
+    {
+      "query_feature": 41006,
+      "key_feature": 30097,
+      "average": 0.5969301462173462,
+      "sum": 0.5969301462173462,
+      "count": 1.0
+    },
+    {
+      "query_feature": 40717,
+      "key_feature": 40717,
+      "average": 0.5959686040878296,
+      "sum": 0.5959686040878296,
+      "count": 1.0
+    }
+  ]
+}

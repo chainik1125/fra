@@ -1,0 +1,71 @@
+{
+  "summary": {
+    "targeted_changed": 6,
+    "random_changed": 6,
+    "total_tests": 6,
+    "avg_targeted_diffs": 7.0,
+    "avg_random_diffs": 7.0
+  },
+  "results": [
+    {
+      "prompt": "When John and Mary went to the store, John gave a drink to",
+      "prompt_type": "IOI",
+      "normal": " Mary, and Mary said, \"John, I",
+      "targeted": " Mary, and Mary gave him a drink. And",
+      "random": " Mary, and Mary gave him a drink. And",
+      "targeted_diffs": 6,
+      "random_diffs": 6,
+      "effectiveness_ratio": 1.0
+    },
+    {
+      "prompt": "The capital of France is",
+      "prompt_type": "Question",
+      "normal": " the capital of the French Republic, and the capital",
+      "targeted": " the capital of France. The capital of France is",
+      "random": " the capital of France. The capital of France is",
+      "targeted_diffs": 7,
+      "random_diffs": 7,
+      "effectiveness_ratio": 1.0
+    },
+    {
+      "prompt": "The Earth orbits around the",
+      "prompt_type": "Factual",
+      "normal": " sun, and the sun is the center of the",
+      "targeted": " Sun, and the Sun is the center of the",
+      "random": " Sun, and the Sun is the center of the",
+      "targeted_diffs": 2,
+      "random_diffs": 2,
+      "effectiveness_ratio": 1.0
+    },
+    {
+      "prompt": "Once upon a time, there lived a wise old wizard who",
+      "prompt_type": "Story",
+      "normal": " was a great wizard. He was a great wizard",
+      "targeted": " lived a wise old life.\n\nThe first",
+      "random": " lived a wise old life.\n\nThe first",
+      "targeted_diffs": 9,
+      "random_diffs": 9,
+      "effectiveness_ratio": 1.0
+    },
+    {
+      "prompt": "Alice and Bob went to the park. Alice threw the ball to",
+      "prompt_type": "IOI",
+      "normal": " Bob, who threw it to the ground.\n",
+      "targeted": " the ground.\n\n\"I'm sorry,",
+      "random": " the ground.\n\n\"I'm sorry,",
+      "targeted_diffs": 10,
+      "random_diffs": 10,
+      "effectiveness_ratio": 1.0
+    },
+    {
+      "prompt": "Water is made of hydrogen and",
+      "prompt_type": "Factual",
+      "normal": " oxygen. The hydrogen is made from the oxygen and",
+      "targeted": " oxygen.\n\nThe hydrogen is made of carbon",
+      "random": " oxygen.\n\nThe hydrogen is made of carbon",
+      "targeted_diffs": 8,
+      "random_diffs": 8,
+      "effectiveness_ratio": 1.0
+    }
+  ]
+}

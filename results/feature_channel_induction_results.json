@@ -1,0 +1,364 @@
+{
+  "layer": 5,
+  "head": 0,
+  "num_sequences": 5,
+  "feature_channels_tested": 50,
+  "top_channels": [
+    {
+      "feature_i": 25247,
+      "feature_j": 25247,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 3.957754611968994
+    },
+    {
+      "feature_i": 44620,
+      "feature_j": 44620,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 3.4442529678344727
+    },
+    {
+      "feature_i": 23477,
+      "feature_j": 23477,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 2.8624396324157715
+    },
+    {
+      "feature_i": 47820,
+      "feature_j": 47820,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 2.7543818950653076
+    },
+    {
+      "feature_i": 31300,
+      "feature_j": 31300,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 2.7167575359344482
+    },
+    {
+      "feature_i": 21799,
+      "feature_j": 21799,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 2.7119624614715576
+    },
+    {
+      "feature_i": 9937,
+      "feature_j": 9937,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 2.4497978687286377
+    },
+    {
+      "feature_i": 1535,
+      "feature_j": 1535,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 2.4078943729400635
+    },
+    {
+      "feature_i": 31300,
+      "feature_j": 23477,
+      "induction_score": 0.0,
+      "is_self": false,
+      "fra_average": 2.37597393989563
+    },
+    {
+      "feature_i": 44620,
+      "feature_j": 35305,
+      "induction_score": 0.0,
+      "is_self": false,
+      "fra_average": 2.242662191390991
+    },
+    {
+      "feature_i": 1507,
+      "feature_j": 31300,
+      "induction_score": 0.0,
+      "is_self": false,
+      "fra_average": 2.1189892292022705
+    },
+    {
+      "feature_i": 18687,
+      "feature_j": 3598,
+      "induction_score": 0.0,
+      "is_self": false,
+      "fra_average": 2.050706148147583
+    },
+    {
+      "feature_i": 18687,
+      "feature_j": 18687,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 2.029630661010742
+    },
+    {
+      "feature_i": 1507,
+      "feature_j": 23477,
+      "induction_score": 0.0,
+      "is_self": false,
+      "fra_average": 2.0188937187194824
+    },
+    {
+      "feature_i": 44620,
+      "feature_j": 3598,
+      "induction_score": 0.0,
+      "is_self": false,
+      "fra_average": 1.9471533298492432
+    },
+    {
+      "feature_i": 1507,
+      "feature_j": 1507,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 1.9109660387039185
+    },
+    {
+      "feature_i": 1507,
+      "feature_j": 44620,
+      "induction_score": 0.0,
+      "is_self": false,
+      "fra_average": 1.902909755706787
+    },
+    {
+      "feature_i": 45555,
+      "feature_j": 27178,
+      "induction_score": 0.0,
+      "is_self": false,
+      "fra_average": 1.872775673866272
+    },
+    {
+      "feature_i": 1507,
+      "feature_j": 3598,
+      "induction_score": 0.0,
+      "is_self": false,
+      "fra_average": 1.820333480834961
+    },
+    {
+      "feature_i": 20778,
+      "feature_j": 20778,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 1.7775193452835083
+    },
+    {
+      "feature_i": 23477,
+      "feature_j": 35305,
+      "induction_score": 0.0,
+      "is_self": false,
+      "fra_average": 1.7532711029052734
+    },
+    {
+      "feature_i": 24993,
+      "feature_j": 24993,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 1.7262814044952393
+    },
+    {
+      "feature_i": 33510,
+      "feature_j": 33510,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 1.7177144289016724
+    },
+    {
+      "feature_i": 35305,
+      "feature_j": 35305,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 1.697998046875
+    },
+    {
+      "feature_i": 18687,
+      "feature_j": 23477,
+      "induction_score": 0.0,
+      "is_self": false,
+      "fra_average": 1.6861063241958618
+    },
+    {
+      "feature_i": 18687,
+      "feature_j": 44620,
+      "induction_score": 0.0,
+      "is_self": false,
+      "fra_average": 1.6628717184066772
+    },
+    {
+      "feature_i": 18232,
+      "feature_j": 18232,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 1.642917513847351
+    },
+    {
+      "feature_i": 31075,
+      "feature_j": 31075,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 1.5967575311660767
+    },
+    {
+      "feature_i": 11820,
+      "feature_j": 11820,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 1.511817216873169
+    },
+    {
+      "feature_i": 27466,
+      "feature_j": 27466,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 1.5004377365112305
+    },
+    {
+      "feature_i": 45555,
+      "feature_j": 33510,
+      "induction_score": 0.0,
+      "is_self": false,
+      "fra_average": 1.4987831115722656
+    },
+    {
+      "feature_i": 41650,
+      "feature_j": 41650,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 1.496334195137024
+    },
+    {
+      "feature_i": 43137,
+      "feature_j": 43137,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 1.491478681564331
+    },
+    {
+      "feature_i": 19020,
+      "feature_j": 19020,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 1.4713268280029297
+    },
+    {
+      "feature_i": 20017,
+      "feature_j": 20017,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 1.4586076736450195
+    },
+    {
+      "feature_i": 44620,
+      "feature_j": 42993,
+      "induction_score": 0.0,
+      "is_self": false,
+      "fra_average": 1.451738715171814
+    },
+    {
+      "feature_i": 27178,
+      "feature_j": 27178,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 1.4400883913040161
+    },
+    {
+      "feature_i": 44620,
+      "feature_j": 20017,
+      "induction_score": 0.0,
+      "is_self": false,
+      "fra_average": 1.4396668672561646
+    },
+    {
+      "feature_i": 1507,
+      "feature_j": 18687,
+      "induction_score": 0.0,
+      "is_self": false,
+      "fra_average": 1.4346213340759277
+    },
+    {
+      "feature_i": 6036,
+      "feature_j": 6036,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 1.363574743270874
+    },
+    {
+      "feature_i": 18687,
+      "feature_j": 31300,
+      "induction_score": 0.0,
+      "is_self": false,
+      "fra_average": 1.360438346862793
+    },
+    {
+      "feature_i": 1507,
+      "feature_j": 1535,
+      "induction_score": 0.0,
+      "is_self": false,
+      "fra_average": 1.3442102670669556
+    },
+    {
+      "feature_i": 17766,
+      "feature_j": 17766,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 1.3386472463607788
+    },
+    {
+      "feature_i": 44620,
+      "feature_j": 36472,
+      "induction_score": 0.0,
+      "is_self": false,
+      "fra_average": 1.3157882690429688
+    },
+    {
+      "feature_i": 1535,
+      "feature_j": 44620,
+      "induction_score": 0.0,
+      "is_self": false,
+      "fra_average": 1.3157167434692383
+    },
+    {
+      "feature_i": 3964,
+      "feature_j": 3964,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 1.2873252630233765
+    },
+    {
+      "feature_i": 1507,
+      "feature_j": 35305,
+      "induction_score": 0.0,
+      "is_self": false,
+      "fra_average": 1.2863833904266357
+    },
+    {
+      "feature_i": 33510,
+      "feature_j": 3598,
+      "induction_score": 0.0,
+      "is_self": false,
+      "fra_average": 1.2737590074539185
+    },
+    {
+      "feature_i": 39172,
+      "feature_j": 39172,
+      "induction_score": 0.0,
+      "is_self": true,
+      "fra_average": 1.231498122215271
+    },
+    {
+      "feature_i": 31300,
+      "feature_j": 35305,
+      "induction_score": 0.0,
+      "is_self": false,
+      "fra_average": 1.2245179414749146
+    }
+  ],
+  "summary": {
+    "best_score": 0.0,
+    "self_mean": 0.0,
+    "cross_mean": 0.0,
+    "token_level_score": 0.0216
+  }
+}

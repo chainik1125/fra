@@ -1,0 +1,436 @@
+{
+  "layer": 5,
+  "results": [
+    {
+      "prompt": "The cat sat on the mat. The cat",
+      "normal": " was a little bit older than me, but I was still a little bit",
+      "ablated": " sat on the mat.\n\n\"I'm sorry, I'm sorry",
+      "changed": true,
+      "num_differences": 15,
+      "ablated_pairs": [
+        {
+          "head": 0,
+          "feature_i": 42514,
+          "feature_j": 7245,
+          "strength": 0.3906020224094391
+        },
+        {
+          "head": 1,
+          "feature_i": 42514,
+          "feature_j": 35425,
+          "strength": 0.377275288105011
+        },
+        {
+          "head": 2,
+          "feature_i": 35425,
+          "feature_j": 7245,
+          "strength": 0.421330064535141
+        },
+        {
+          "head": 3,
+          "feature_i": 31258,
+          "feature_j": 7245,
+          "strength": 0.230560764670372
+        },
+        {
+          "head": 4,
+          "feature_i": 35425,
+          "feature_j": 7245,
+          "strength": 0.4223759174346924
+        },
+        {
+          "head": 5,
+          "feature_i": 7245,
+          "feature_j": 33988,
+          "strength": 0.37667936086654663
+        },
+        {
+          "head": 6,
+          "feature_i": 35425,
+          "feature_j": 33988,
+          "strength": 0.2072862684726715
+        },
+        {
+          "head": 7,
+          "feature_i": 35425,
+          "feature_j": 7245,
+          "strength": 0.29910704493522644
+        },
+        {
+          "head": 8,
+          "feature_i": 7245,
+          "feature_j": 33988,
+          "strength": 0.2686154842376709
+        },
+        {
+          "head": 9,
+          "feature_i": 7245,
+          "feature_j": 22879,
+          "strength": 0.10318000614643097
+        },
+        {
+          "head": 10,
+          "feature_i": 42514,
+          "feature_j": 7245,
+          "strength": 0.18534305691719055
+        },
+        {
+          "head": 11,
+          "feature_i": 7245,
+          "feature_j": 10823,
+          "strength": 0.1748146265745163
+        }
+      ]
+    },
+    {
+      "prompt": "She went to the store and bought milk. She",
+      "normal": " said she was going to buy a bottle of milk and she was going to",
+      "ablated": " went to the store and bought milk.\n\n\"I'm not going",
+      "changed": true,
+      "num_differences": 15,
+      "ablated_pairs": [
+        {
+          "head": 0,
+          "feature_i": 35425,
+          "feature_j": 10823,
+          "strength": 0.16141913831233978
+        },
+        {
+          "head": 1,
+          "feature_i": 9746,
+          "feature_j": 35425,
+          "strength": 0.16370607912540436
+        },
+        {
+          "head": 2,
+          "feature_i": 15277,
+          "feature_j": 10823,
+          "strength": 0.08378634601831436
+        },
+        {
+          "head": 3,
+          "feature_i": 15277,
+          "feature_j": 10823,
+          "strength": 0.06534109264612198
+        },
+        {
+          "head": 4,
+          "feature_i": 35425,
+          "feature_j": 15277,
+          "strength": 0.08037087321281433
+        },
+        {
+          "head": 5,
+          "feature_i": 15277,
+          "feature_j": 10823,
+          "strength": 0.10271283239126205
+        },
+        {
+          "head": 6,
+          "feature_i": 35425,
+          "feature_j": 9746,
+          "strength": 0.09671581536531448
+        },
+        {
+          "head": 7,
+          "feature_i": 46719,
+          "feature_j": 10823,
+          "strength": 0.0764467641711235
+        },
+        {
+          "head": 8,
+          "feature_i": 35425,
+          "feature_j": 10823,
+          "strength": 0.08601298928260803
+        },
+        {
+          "head": 9,
+          "feature_i": 10894,
+          "feature_j": 35425,
+          "strength": 0.04956141486763954
+        },
+        {
+          "head": 10,
+          "feature_i": 15277,
+          "feature_j": 10823,
+          "strength": 0.08936619758605957
+        },
+        {
+          "head": 11,
+          "feature_i": 15277,
+          "feature_j": 10823,
+          "strength": 0.16203415393829346
+        }
+      ]
+    },
+    {
+      "prompt": "John gave Mary a book. John gave",
+      "normal": " Mary a book.\n\nMary said, \"I have read it.",
+      "ablated": " Mary a book.\n\nJohn gave Mary a book.\n\nJohn",
+      "changed": true,
+      "num_differences": 9,
+      "ablated_pairs": [
+        {
+          "head": 0,
+          "feature_i": 35425,
+          "feature_j": 7247,
+          "strength": 0.35598692297935486
+        },
+        {
+          "head": 1,
+          "feature_i": 7247,
+          "feature_j": 35425,
+          "strength": 0.6395334601402283
+        },
+        {
+          "head": 2,
+          "feature_i": 35425,
+          "feature_j": 7247,
+          "strength": 0.24520468711853027
+        },
+        {
+          "head": 3,
+          "feature_i": 35425,
+          "feature_j": 44213,
+          "strength": 0.23438632488250732
+        },
+        {
+          "head": 4,
+          "feature_i": 35425,
+          "feature_j": 15107,
+          "strength": 0.16747568547725677
+        },
+        {
+          "head": 5,
+          "feature_i": 35425,
+          "feature_j": 7247,
+          "strength": 0.3080854117870331
+        },
+        {
+          "head": 6,
+          "feature_i": 7247,
+          "feature_j": 3973,
+          "strength": 0.22642582654953003
+        },
+        {
+          "head": 7,
+          "feature_i": 3973,
+          "feature_j": 27779,
+          "strength": 0.20428508520126343
+        },
+        {
+          "head": 8,
+          "feature_i": 7247,
+          "feature_j": 35425,
+          "strength": 0.3597082793712616
+        },
+        {
+          "head": 9,
+          "feature_i": 35425,
+          "feature_j": 27779,
+          "strength": 0.29620975255966187
+        },
+        {
+          "head": 10,
+          "feature_i": 3973,
+          "feature_j": 7247,
+          "strength": 0.19968539476394653
+        },
+        {
+          "head": 11,
+          "feature_i": 27779,
+          "feature_j": 7247,
+          "strength": 0.16163606941699982
+        }
+      ]
+    },
+    {
+      "prompt": "The weather today is sunny. The weather",
+      "normal": " is good. The weather is good. The weather is good. The weather",
+      "ablated": " today is sunny.\n\nThe weather today is sunny. The weather today",
+      "changed": true,
+      "num_differences": 15,
+      "ablated_pairs": [
+        {
+          "head": 0,
+          "feature_i": 35425,
+          "feature_j": 22173,
+          "strength": 0.32907965779304504
+        },
+        {
+          "head": 1,
+          "feature_i": 35425,
+          "feature_j": 22173,
+          "strength": 0.6061378121376038
+        },
+        {
+          "head": 2,
+          "feature_i": 18736,
+          "feature_j": 10823,
+          "strength": 0.15209650993347168
+        },
+        {
+          "head": 3,
+          "feature_i": 35425,
+          "feature_j": 18736,
+          "strength": 0.16566190123558044
+        },
+        {
+          "head": 4,
+          "feature_i": 35425,
+          "feature_j": 37142,
+          "strength": 0.2346556931734085
+        },
+        {
+          "head": 5,
+          "feature_i": 35425,
+          "feature_j": 8912,
+          "strength": 0.3541862368583679
+        },
+        {
+          "head": 6,
+          "feature_i": 35425,
+          "feature_j": 22173,
+          "strength": 0.27406054735183716
+        },
+        {
+          "head": 7,
+          "feature_i": 18736,
+          "feature_j": 37142,
+          "strength": 0.22567403316497803
+        },
+        {
+          "head": 8,
+          "feature_i": 22173,
+          "feature_j": 35425,
+          "strength": 0.29126498103141785
+        },
+        {
+          "head": 9,
+          "feature_i": 8912,
+          "feature_j": 35425,
+          "strength": 0.1660536527633667
+        },
+        {
+          "head": 10,
+          "feature_i": 22173,
+          "feature_j": 35425,
+          "strength": 0.2468700408935547
+        },
+        {
+          "head": 11,
+          "feature_i": 33206,
+          "feature_j": 37142,
+          "strength": 0.20535726845264435
+        }
+      ]
+    },
+    {
+      "prompt": "Once upon a time there was a princess. Once upon",
+      "normal": " a time there was a princess.\n\n\"I'm sorry, Princess",
+      "ablated": " a time there was a princess.\n\n\"I'm sorry, Princess",
+      "changed": false,
+      "num_differences": 0,
+      "ablated_pairs": [
+        {
+          "head": 0,
+          "feature_i": 35425,
+          "feature_j": 10823,
+          "strength": 0.43755653500556946
+        },
+        {
+          "head": 1,
+          "feature_i": 37067,
+          "feature_j": 35425,
+          "strength": 0.5226508378982544
+        },
+        {
+          "head": 2,
+          "feature_i": 11992,
+          "feature_j": 35425,
+          "strength": 0.2772004008293152
+        },
+        {
+          "head": 3,
+          "feature_i": 35425,
+          "feature_j": 11992,
+          "strength": 0.37760835886001587
+        },
+        {
+          "head": 4,
+          "feature_i": 11992,
+          "feature_j": 35425,
+          "strength": 0.2523402273654938
+        },
+        {
+          "head": 5,
+          "feature_i": 9113,
+          "feature_j": 35425,
+          "strength": 0.3633403182029724
+        },
+        {
+          "head": 6,
+          "feature_i": 35425,
+          "feature_j": 10823,
+          "strength": 0.24807684123516083
+        },
+        {
+          "head": 7,
+          "feature_i": 35425,
+          "feature_j": 11992,
+          "strength": 0.40848296880722046
+        },
+        {
+          "head": 8,
+          "feature_i": 35425,
+          "feature_j": 10823,
+          "strength": 0.23315419256687164
+        },
+        {
+          "head": 9,
+          "feature_i": 35425,
+          "feature_j": 11992,
+          "strength": 0.19378453493118286
+        },
+        {
+          "head": 10,
+          "feature_i": 35425,
+          "feature_j": 37067,
+          "strength": 0.19145351648330688
+        },
+        {
+          "head": 11,
+          "feature_i": 9113,
+          "feature_j": 35425,
+          "strength": 0.23094643652439117
+        }
+      ]
+    }
+  ],
+  "feature_descriptions": {
+    "15107": "Feature 15107",
+    "27779": "Feature 27779",
+    "3973": "Feature 3973",
+    "10894": "Feature 10894",
+    "42514": "Feature 42514",
+    "9746": "Feature 9746",
+    "37142": "Feature 37142",
+    "9113": "Feature 9113",
+    "31258": "Feature 31258",
+    "22173": "Feature 22173",
+    "15277": "Feature 15277",
+    "18736": "Feature 18736",
+    "44213": "Feature 44213",
+    "33206": "Feature 33206",
+    "33988": "Feature 33988",
+    "10823": "Feature 10823",
+    "37067": "Feature 37067",
+    "7245": "Feature 7245",
+    "7247": "Feature 7247",
+    "8912": "Feature 8912",
+    "11992": "Feature 11992",
+    "22879": "Feature 22879",
+    "35425": "Feature 35425",
+    "46719": "Feature 46719"
+  }
+}

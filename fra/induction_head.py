@@ -10,6 +10,38 @@ from typing import Dict, Any, List, Tuple, Optional
 from tqdm import tqdm
 from transformer_lens import HookedTransformer
 from sae_lens import SAE
+from fra.fra_func import attention_pattern_QK
+
+
+def data_independent_attention(model: HookedTransformer, layer: int, head: int, sae_dec: torch.Tensor):
+    """
+    Compute data-independent feature-resolved attention pattern.
+    
+    This shows which features naturally attend to which other features
+    based solely on the SAE decoder weights, without any specific input data.
+    
+    Args:
+        model: The transformer model
+        layer: Layer index
+        head: Head index
+        sae_dec: SAE decoder matrix (W_dec) of shape [d_sae, d_model]
+    
+    Returns:
+        interaction_matrix: Data-independent attention pattern [d_sae, d_sae]
+    """
+    # Use SAE decoder weights directly as "activations" for all features
+    # This shows the inherent feature-to-feature attention preferences
+    query_activations_for_features = sae_dec
+    key_activations_for_features = sae_dec
+    
+    # Compute attention pattern using the decoder weights
+    interaction_matrix_unscaled = attention_pattern_QK(
+        model, layer, head,
+        query_activations_for_features, False,  # No bias for queries
+        key_activations_for_features, False     # No bias for keys
+    )
+    
+    return interaction_matrix_unscaled
 
 
 class SAELensAttentionSAE:
@@ -523,18 +555,18 @@ def main():
     
     print("\n" + "=" * 70)
     
-    # Generate dashboard for the analyzed text
+    # Generate dashboard for the analyzed text (single line version)
     print("\nGenerating interactive dashboard...")
-    dashboard_path = create_fra_dashboard(
-        model=model,
-        sae=sae,
-        text=text,
-        layer=layer,
-        head=0,  # Using head 0 for the dashboard
-        top_k_features=top_k,
-        top_k_interactions=30,
-        use_timestamp=False
-    )
+    from fra.single_sample_viz import generate_dashboard_from_config
+    
+    # Single line call with all parameters
+    dashboard_path = generate_dashboard_from_config(model=model, sae=sae, text=text, layer=layer, head=0, top_k_features=top_k, top_k_interactions=30)
+    
+    # Alternative single line calls:
+    # dashboard_path = generate_dashboard_from_config(model, sae, text)  # Uses defaults for other params
+    # dashboard_path = generate_dashboard_from_config(config_path="config.yaml")  # Loads everything from config
+    # dashboard_path = generate_dashboard_from_config()  # Uses all defaults
+    
     print(f"Dashboard saved to: {dashboard_path}")
     
     # Package results for easy transfer

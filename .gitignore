@@ -3,6 +3,10 @@
 wandb/
 .data/
 .checkpoints/
+
+# FRA Results and outputs
+fra/results/
+*.html
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
