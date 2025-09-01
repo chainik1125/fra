@@ -1,5 +1,5 @@
 """
-Batched GPU implementation of FRA without pre-computing all features.
+1Batched GPU implementation of FRA without pre-computing all features.
 Only computes Q/K for active features.
 """
 
